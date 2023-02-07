@@ -1,3 +1,3 @@
 # Dcentr Finance
 
-This si the static website for dcentr finance
+This is the static website for dcentr finance
