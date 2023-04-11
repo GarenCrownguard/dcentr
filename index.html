@@ -1,1 +1,141 @@
-Dcentr is coming soon. Keep a peeling eye on :)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dcentr Finance</title>
+    <link rel="icon" href="./assets/favicon.png" />
+    <style>
+      /* CSS styles go here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        background-color: #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+      section {
+        display: none;
+      }
+      .section-active {
+        display: block;
+      }
+      .page1 {
+        height: 100vh;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .page1 img {
+        width: 80%;
+        height: auto;
+        object-fit: cover;
+      }
+      .notification-banner {
+        background-color: #ff3333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20px;
+      }
+      .notification-banner p {
+        color: #fff;
+        padding: 0px;
+        text-align: center;
+        margin: 0px;
+        width: 100%;
+      }
+      .join-us {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #1e90ff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .join-us:hover {
+        background-color: #0b69a3;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <nav>
+      <a href="/homepage">Page 1</a>
+      <a href="/page2">Page 2</a>
+      <a href="/join-us">Page 3</a>
+      <a class="join-us" href="/join-us">Explore career opportunities</a><br />
+    </nav> -->
+
+    <section id="homepage" class="section-active">
+      <nav>
+        <!-- <a href="/homepage">Page 1</a> -->
+        <!-- <a href="/page2">Page 2</a> -->
+        <!-- <a href="/join-us">Page 3</a> -->
+        <a class="join-us" href="/join-us.html">Explore career opportunities</a
+        ><br />
+      </nav>
+      <div class="notification-banner">
+        <p>This landing page and dapp are currently under development.</p>
+      </div>
+      <div class="page page1">
+        <img src="./assets/homepage_temp.png" alt="Image" />
+      </div>
+    </section>
+    <!-- <section id="page2">
+      <h2>Page 2</h2>
+      <p>This is the content for Page 2.</p>
+    </section> -->
+    <section id="join-us.html">
+    </section>
+    <script>
+      // JavaScript code to toggle section display based on URL path
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll("nav a");
+
+      // Get the current URL path
+      const path = window.location.pathname;
+
+      // Show the section for the current URL path
+      sections.forEach((section) => {
+        if (section.id === path.substring(1)) {
+          section.classList.add("section-active");
+        }
+      });
+
+      // Add click event listeners to the navigation links
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          // Remove active class from all links
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+          });
+
+          // Add active class to clicked link
+          link.classList.add("active");
+
+          // Hide all sections
+          sections.forEach((section) => {
+            section.classList.remove("section-active");
+          });
+
+          // Show the corresponding section
+          const target = link.getAttribute("href").substring(1);
+          document.getElementById(target).classList.add("section-active");
+
+          // Update the URL path
+          window.history.pushState(null, null, target);
+        });
+      });
+    </script>
+  </body>
+</html>
